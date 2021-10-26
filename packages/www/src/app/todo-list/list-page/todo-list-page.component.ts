@@ -4,11 +4,11 @@ import { TaskApiService } from '../service/task-api.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'task-list-page',
-  templateUrl: './task-list-page.component.html',
-  styleUrls: ['./task-list-page.component.scss']
+  selector: 'todo-list-page',
+  templateUrl: './todo-list-page.component.html',
+  styleUrls: ['./todo-list-page.component.scss']
 })
-export class TaskListPageComponent implements OnInit, OnDestroy {
+export class TodoListPageComponent implements OnInit, OnDestroy {
   taskList: TaskDto[] = [];
   subscription: Subscription | undefined;
 
@@ -18,6 +18,11 @@ export class TaskListPageComponent implements OnInit, OnDestroy {
       this.subscription = this.taskApiService.taskListSubject.subscribe((taskList) => {
         this.taskList = taskList;
       })
+  }
+
+  async markTaskAsDone(taskId: string): Promise<void> {
+    console.dir(taskId)
+    await this.taskApiService.markTaskAsDone(taskId);
   }
 
   ngOnDestroy() {

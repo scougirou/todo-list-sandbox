@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TaskListModule } from './task/task-list.module';
+import { TodoListModule } from './todo-list/todo-list.module';
 
 @NgModule( {
   declarations: [
@@ -13,7 +13,7 @@ import { TaskListModule } from './task/task-list.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TaskListModule,
+    TodoListModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

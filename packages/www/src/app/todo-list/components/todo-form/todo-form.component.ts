@@ -4,11 +4,11 @@ import { TaskDto } from '../../model/task.dto';
 import { TaskApiService } from '../../service/task-api.service';
 
 @Component({
-  selector: 'add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss']
+  selector: 'todo-form',
+  templateUrl: './todo-form.component.html',
+  styleUrls: ['./todo-form.component.scss']
 })
-export class AddTaskComponent implements OnInit {
+export class TodoFormComponent implements OnInit {
 
   taskTitle = new FormControl('');
 

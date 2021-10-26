@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskListPageComponent } from './list-page/task-list-page.component';
+import { TodoListPageComponent } from './list-page/todo-list-page.component';
 import { TaskComponent } from './components/task/task.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddTaskComponent } from './components/add-task/add-task.component';
+import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
-    TaskListPageComponent,
+    TodoListPageComponent,
     TaskComponent,
-    AddTaskComponent
+    TodoFormComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
   ],
 })
-export class TaskListModule { }
+export class TodoListModule { }

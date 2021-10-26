@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="child">
+    <todo-form></todo-form>
+  </div>
+  <div class="child">
+    <div class="task-row" *ngFor="let task of taskList">
+      <task-row (markTaskAsDoneOutput)="markTaskAsDone($event)" [task]="task"></task-row>
+    </div>
+  </div>
+</div>

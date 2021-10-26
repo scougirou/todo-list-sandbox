@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 
-const GET_TASK_LIST_URI = '/tasks'
-const ADD_TASK_LIST_URI = '/tasks'
+const TASK_URI = 'tasks'
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +14,16 @@ export class TaskApiService {
 
   constructor(private readonly httpClient: HttpClient) {
     this.taskListSubject = new BehaviorSubject<TaskDto[]>([]);
+    this.updateTaskList();
   }
 
   async addTask(task: TaskDto): Promise<void> {
-    await this.httpClient.post(`${environment.apiUrl}${ADD_TASK_LIST_URI}`, task ).toPromise();
+    await this.httpClient.post(`${environment.apiUrl}/${TASK_URI}`, task ).toPromise();
+    this.updateTaskList();
+  }
+
+  async markTaskAsDone(taskId: string): Promise<void> {
+    await this.httpClient.post(`${environment.apiUrl}/${TASK_URI}/${taskId}/complete`,{}).toPromise();
     this.updateTaskList();
   }
 
@@ -28,7 +33,7 @@ export class TaskApiService {
   }
 
   private async getAllTasks(): Promise<TaskDto[]> {
-    const taskList = await this.httpClient.get<TaskDto[]>(`${environment.apiUrl}${GET_TASK_LIST_URI}`).toPromise();
+    const taskList = await this.httpClient.get<TaskDto[]>(`${environment.apiUrl}/${TASK_URI}`).toPromise();
     return taskList;
   }
 }
