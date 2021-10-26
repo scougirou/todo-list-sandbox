@@ -13,6 +13,8 @@ export class TaskComponent implements OnInit {
 
   @Output()
   markTaskAsDoneOutput = new EventEmitter<string>();
+  @Output()
+  deleteTaskOutput = new EventEmitter<string>();
 
   constructor() { }
 
@@ -25,5 +27,9 @@ export class TaskComponent implements OnInit {
 
   markTaskAsDone() {
     this.markTaskAsDoneOutput.emit(this.task.id);
+  }
+
+  deleteTask() {
+    this.deleteTaskOutput.emit(this.task.id)
   }
 }

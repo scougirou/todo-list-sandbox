@@ -21,8 +21,10 @@ export class TodoListPageComponent implements OnInit, OnDestroy {
   }
 
   async markTaskAsDone(taskId: string): Promise<void> {
-    console.dir(taskId)
     await this.taskApiService.markTaskAsDone(taskId);
+  }
+  async deleteTask(taskId: string): Promise<void> {
+    await this.taskApiService.deleteTask(taskId);
   }
 
   ngOnDestroy() {

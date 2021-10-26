@@ -4,7 +4,11 @@
   </div>
   <div class="child">
     <div class="task-row" *ngFor="let task of taskList">
-      <task-row (markTaskAsDoneOutput)="markTaskAsDone($event)" [task]="task"></task-row>
+      <task-row
+        [task]="task"
+        (markTaskAsDoneOutput)="markTaskAsDone($event)"
+        (deleteTaskOutput)="deleteTask($event)"
+      ></task-row>
     </div>
   </div>
 </div>
