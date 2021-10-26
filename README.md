@@ -13,3 +13,9 @@
 
 ## Devops
  - Dockerize dev stack
+
+# Discussions
+
+## API
+ - Post creation could return the id of the newly created task
+ - The `complete` endpoint is in `Post`, could be in `Put` or `Patch`
