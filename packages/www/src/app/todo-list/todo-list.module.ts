@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoListPageComponent } from './list-page/todo-list-page.component';
+import { TodoListPageComponent } from './todo-list-page/todo-list-page.component';
 import { TaskComponent } from './components/task/task.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
