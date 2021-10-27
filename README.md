@@ -5,7 +5,7 @@
  - ~~Implement todo list crud operations~~
  - ~~Unit test the service~~
  - ~~Add swagger~~
- - Add task filtering endpoint
+ - ~~Add task filtering endpoint~~
  - Split DTO for each endpoint
  - Add persistence
  - Add 304 not modified response type
@@ -17,7 +17,7 @@
  - ~~Add refresh mechanism~~
  - ~~Add basic CSS~~
  - ~~Pay attention to the specs and the naming used~~
- - Add task filtering drop down
+ - ~~Add task filtering drop down~~
  - Clean error handling on API calls
  - Better way to update the task list on each call
     - Facade service that updates only updated task?
