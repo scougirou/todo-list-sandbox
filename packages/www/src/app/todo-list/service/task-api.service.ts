@@ -29,7 +29,7 @@ export class TaskApiService {
 
   async deleteTask(taskId: string): Promise<void> {
     await this.httpClient.delete(`${environment.apiUrl}/${TASK_URI}/${taskId}`).toPromise();
-    this.updateTaskList();
+    await this.updateTaskList();
   }
 
   private async updateTaskList(): Promise<void> {
