@@ -11,6 +11,7 @@ const TASK_URI = 'tasks'
 })
 export class TaskApiService {
   taskListSubject: BehaviorSubject<TaskDto[]>;
+  filterStatus: number | undefined;
 
   constructor(private readonly httpClient: HttpClient) {
     this.taskListSubject = new BehaviorSubject<TaskDto[]>([]);
@@ -32,13 +33,22 @@ export class TaskApiService {
     await this.updateTaskList();
   }
 
+  filterByStatus(status?: number): void {
+    this.filterStatus = status;
+    this.updateTaskList();
+  }
+
   private async updateTaskList(): Promise<void> {
     const taskList = await this.getAllTasks();
     this.taskListSubject.next(taskList);
   }
 
   private async getAllTasks(): Promise<TaskDto[]> {
-    const taskList = await this.httpClient.get<TaskDto[]>(`${environment.apiUrl}/${TASK_URI}`).toPromise();
+    let url = `${environment.apiUrl}/${TASK_URI}`;
+    if (this.filterStatus) {
+      url += `/filter?status=${this.filterStatus}`;
+    }
+    const taskList = await this.httpClient.get<TaskDto[]>(url).toPromise();
     return taskList;
   }
 }

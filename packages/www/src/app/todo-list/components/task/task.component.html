@@ -6,10 +6,10 @@
       (change)="markTaskAsDone()">
     </mat-checkbox>
   </span>
-  <span [class.complete]="isTaskDone()">
+  <span class="task-title" [class.complete]="isTaskDone()">
     {{ task.title }}
   </span>
   <span>
-    <mat-icon (click)="deleteTask()">delete</mat-icon>
+    <mat-icon class="delete" (click)="deleteTask()">delete</mat-icon>
   </span>
 </div>
