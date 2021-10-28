@@ -1,3 +1,14 @@
-<label for="name">Title: </label>
-<input id="name" type="text" [formControl]="taskTitle">
-<button mat-raised-button color="primary" (click)="addTask()"><mat-icon>add</mat-icon>Add task</button>
+<div class="input-row">
+  <div class="full-width">
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput id="name" type="text" [formControl]="taskTitle" placeholder="Write new task...">
+    </mat-form-field>
+  </div>
+  <div class="add-task-button">
+    <button mat-raised-button color="primary" (click)="addTask()">
+      <mat-icon>add</mat-icon>
+      Add task
+    </button>
+  </div>
+</div>

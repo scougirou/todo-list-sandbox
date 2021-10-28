@@ -1,4 +1,18 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 
+  padding-top: 5px;
+}
+
+.child {
+  padding: 5px;
+}
+
+.task-title {
+  padding-left: 10px;
+}
 
 .complete {
   color: gray;
@@ -7,4 +21,6 @@
 
 .delete {
   cursor: pointer;
+  align-self: flex-end;
+  color: grey;
 }

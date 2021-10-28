@@ -1,13 +1,40 @@
 .container {
   display: flex;
   flex-direction: column;
-
 }
 
 .child {
   padding: 3px;
 }
 
+.task-list {
+  padding-top: 20px;
+  width: inherit;
+}
+
 .task-row {
   border-top: lightgray solid 1px;
+  border-bottom: transparent solid 1px;
+}
+
+.task-row:last-child {
+  border-top: lightgray solid 1px;
+  border-bottom: lightgray solid 1px;
+}
+
+.placeholder {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.filter {
+  display: flex;
+  align-self: flex-end;
+
+  .select {
+    min-width: 100px;
+    padding-left: 30px;
+  }
 }

@@ -2,24 +2,28 @@
   <div class="child">
     <todo-form></todo-form>
   </div>
-  <div>
+  <div class="child filter">
     <mat-label>Display:</mat-label>
     <mat-select
       (valueChange)="filterByStatus($event)"
       [(ngModel)]="currentStatus"
+      class="select"
     >
       <mat-option [value]="allStatus">All</mat-option>
       <mat-option [value]="statusEnum.TODO">TODO</mat-option>
       <mat-option [value]="statusEnum.DONE">DONE</mat-option>
     </mat-select>
   </div>
-  <div class="child">
+  <div class="child task-list">
     <div class="task-row" *ngFor="let task of taskList">
       <task-row
         [task]="task"
         (markTaskAsDoneOutput)="markTaskAsDone($event)"
         (deleteTaskOutput)="deleteTask($event)"
       ></task-row>
+    </div>
+    <div class="task-row placeholder" *ngIf="taskList.length === 0">
+        No task found...
     </div>
   </div>
 </div>
