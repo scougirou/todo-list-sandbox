@@ -15,19 +15,29 @@ The script will:
 - Install necessary node-modules
 - Launch the following items:
    - Server
+      - Swagger available here [http://localhost:3000/swagger]()
    - Front-end
+      - App running here: [http://localhost:4200]()
    - Postgres database
    - PgAdmin: [http://localhost:9998]()
       - user: `dev@todo.fr`
       - password: `dev`
+      - db password: `postgres`
 
-### Stoping the stack
+### Stopping the stack
+```shell
+./stop-stack.sh
+```
 
 ## Standalone mode
 ### Prerequisite
 - Node runtime installed (>= `14.7.0`)
 - Running Postgres instance
+- Install node modules: run `yarn` in the project root directory
 
+### Starting the stack
+ - Front-end: `yarn --cwd packages/www www:start`
+ - Backend: `yarn --cwd packages/server server:start:dev`
 
 
 # Conception

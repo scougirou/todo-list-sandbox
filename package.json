@@ -7,6 +7,16 @@
   "workspaces": {
     "packages": [
       "packages/*"
+    ],
+    "nohoist": [
+      "@todolist/www/@angular",
+      "@todolist/www/@angular/**",
+      "@todolist/server/@nestjs",
+      "@todolist/server/@nestjs/**",
+      "@todolist/server/@nestjs-modules",
+      "@todolist/server/@nestjs-modules/**",
+      "@todolist/server/swagger-ui-express",
+      "@todolist/server/swagger-ui-express/**"
     ]
    }
 }

@@ -4,6 +4,7 @@
   "scripts": {
     "www:ng": "ng",
     "www:start": "ng serve",
+    "www:start:docker": "ng serve --host 0.0.0.0",
     "www:build": "ng build",
     "www:watch": "ng build --watch --configuration development",
     "www:test": "ng test"

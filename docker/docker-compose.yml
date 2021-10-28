@@ -28,7 +28,7 @@ services:
       - app-backend
     env_file:
       - ./server.env
-    command: npx lerna run --scope @todolist/server server:start:dev
+    command: yarn --cwd packages/server server:start:dev
 
   www-dev:
     image: node:14.17.0
@@ -39,14 +39,14 @@ services:
       - node-modules-www:/app/packages/www/node_modules:rw
       - ..:/app:rw,cached
     ports:
-      - "8080:8080"
+      - "4200:4200"
     networks:
       - app-frontend
     command: >
       /bin/sh -c "
       apt update
       && apt install gettext-base
-      && npx lerna run --scope @todolist/www www:watch
+      && yarn --cwd packages/www www:start:docker
       "
 
   postgres:
