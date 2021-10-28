@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TasksService should be able to add new tasks 1`] = `
+Map {
+  "12345" => Object {
+    "createdAt": 2021-10-25T13:01:55.096Z,
+    "id": "12345",
+    "modifiedAt": 2021-10-25T13:01:55.096Z,
+    "status": "TODO",
+    "title": "Dummy todo-list",
+  },
+}
+`;
