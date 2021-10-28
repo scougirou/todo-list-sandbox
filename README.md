@@ -4,7 +4,8 @@
 ## Docker mode
 ### Prerequisite
 - Docker runtime installed
-
+- Duplicate `docker/server.env.default` to `docker/server.env`
+  - The docker-compose requires it, blank values will simply fall back to defaults (see below)
 ### Lauching the stack
 Use the script:
 ```shell
@@ -38,6 +39,29 @@ The script will:
 ### Starting the stack
  - Front-end: `yarn --cwd packages/www www:start`
  - Backend: `yarn --cwd packages/server server:start:dev`
+
+## Configuration
+Frontend is not yet configurable (will always try to reach the api on `localhost:3000`).\
+This could be achieved with a config service which parses a static JSON file that would be envsubst'ed by docker at launch time.\
+By default the Angular environment system is not great for this.
+
+Backend is configurable with env vars.\
+List and default values:
+```shell
+# Server config
+PORT=3000
+HOST=localhost
+SCHEME=http
+
+# Postgres connection info for the server
+DB_HOST=postgres
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=todolist
+```
+If needed, a `server.env.default` is provided in the `docker` folder.
+
 
 
 # Conception
