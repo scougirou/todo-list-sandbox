@@ -1,5 +1,45 @@
 # Todo list sandbox project
 
+# Usage
+## Docker mode
+### Prerequisite
+- Docker runtime installed
+
+### Lauching the stack
+Use the script:
+```shell
+./start-stack.sh
+```
+
+The script will:
+- Install necessary node-modules
+- Launch the following items:
+   - Server
+   - Front-end
+   - Postgres database
+   - PgAdmin: [http://localhost:9998]()
+      - user: `dev@todo.fr`
+      - password: `dev`
+
+### Stoping the stack
+
+## Standalone mode
+### Prerequisite
+- Node runtime installed (>= `14.7.0`)
+- Running Postgres instance
+
+
+
+# Conception
+## Backend
+Made with NestJS 8.0.0.
+
+Simple MVC architecture.
+
+Controllers are lightweight and only pass on the workload to a service.
+
+First implementation used a in-memory service, DI was used to switch to a service communicating with a database.
+
 # Todo
 ## Backend
  - ~~Implement todo list crud operations~~

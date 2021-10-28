@@ -1,5 +1,5 @@
 {
-  "name": "www",
+  "name": "@todolist/www",
   "version": "0.0.0",
   "scripts": {
     "www:ng": "ng",

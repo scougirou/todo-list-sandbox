@@ -1,0 +1,78 @@
+version: '3.8'
+
+networks:
+  app-backend:
+  app-frontend:
+  db-backend:
+
+volumes:
+  node-modules:
+    external: true
+  node-modules-server:
+    external: true
+  node-modules-www:
+    external: true
+
+services:
+  server-todolist-api:
+    image: node:14.17.0
+    restart: always
+    working_dir: /app
+    volumes:
+      - node-modules:/app/node_modules:ro
+      - node-modules-server:/app/server/node_modules:ro
+      - ..:/app:rw,cached
+    ports:
+      - "3000:3000"
+    networks:
+      - app-backend
+    env_file:
+      - ./server.env
+    command: npx lerna run --scope @todolist/server server:start:dev
+
+  www-dev:
+    image: node:14.17.0
+    restart: always
+    working_dir: /app
+    volumes:
+      - node-modules:/app/node_modules:ro
+      - node-modules-www:/app/packages/www/node_modules:rw
+      - ..:/app:rw,cached
+    ports:
+      - "8080:8080"
+    networks:
+      - app-frontend
+    command: >
+      /bin/sh -c "
+      apt update
+      && apt install gettext-base
+      && npx lerna run --scope @todolist/www www:watch
+      "
+
+  postgres:
+    image: postgres:12.3-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - app-backend
+      - db-backend
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./scripts/database:/docker-entrypoint-initdb.d:ro
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - "9998:80"
+    networks:
+      - db-backend
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev@todo.fr
+      PGADMIN_DEFAULT_PASSWORD: dev
+    volumes:
+      - ./config/pgadmin/servers.json:/pgadmin4/servers.json:ro
