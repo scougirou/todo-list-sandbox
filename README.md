@@ -62,8 +62,6 @@ DB_DATABASE=todolist
 ```
 If needed, a `server.env.default` is provided in the `docker` folder.
 
-
-
 # Conception
 ## Backend
 Made with NestJS 8.0.0.
@@ -80,8 +78,9 @@ First implementation used a in-memory service, DI was used to switch to a servic
  - ~~Unit test the service~~
  - ~~Add swagger~~
  - ~~Add task filtering endpoint~~
- - Split DTO for each endpoint
  - Add persistence
+ - Fix unit tests, broken following a refact
+ - Split DTO for each endpoint
  - Add 304 not modified response type
  - Add integration testing
 
@@ -92,7 +91,10 @@ First implementation used a in-memory service, DI was used to switch to a servic
  - ~~Add basic CSS~~
  - ~~Pay attention to the specs and the naming used~~
  - ~~Add task filtering drop down~~
- - Clean error handling on API calls
+ - ~~Cleanup UI~~
+ - ~~Clean error handling on API calls~~
+ - Refact CSS
+ - Properly use the form on the add task (empty title on submit)
  - Better way to update the task list on each call
     - Facade service that updates only updated task?
     - Interceptor?
@@ -104,10 +106,4 @@ First implementation used a in-memory service, DI was used to switch to a servic
  - Versionning
 
 ## Devops
- - Dockerize dev stack
-
-# Discussions
-
-## API
- - Post creation could return the id of the newly created task
- - The `complete` endpoint is in `Post`, could be in `Put` or `Patch`
+ - ~~Dockerize dev stack~~
